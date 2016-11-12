@@ -3,5 +3,5 @@
  */
 
 export class Judge {
-  name: string;
+  constructor(public name: string = "") {}
 }

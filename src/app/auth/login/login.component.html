@@ -1,3 +1,33 @@
+<h1 [ngStyle]="{'text-align': 'center'}">Log In</h1>
 <cc-small-center-panel>
-  <h1>Login stuff!</h1>
+  <form [formGroup]="loginForm" (submit)="onSubmit(loginForm)">
+    <div class="form-group"
+         [ngClass]="{'has-error': !loginForm.controls.email.valid && !loginForm.controls.email.pristine}">
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Email"
+        name="email"
+        formControlName="email"
+      >
+      <span *ngIf="!loginForm.controls.email.valid && !loginForm.controls.email.pristine">Email address is required.</span>
+
+    </div>
+    <div class="form-group"
+         [ngClass]="{'has-error': !loginForm.controls.password.valid && !loginForm.controls.password.pristine}">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password"
+        name="password"
+        formControlName="password"
+      >
+      <span *ngIf="!loginForm.controls.password.valid && !loginForm.controls.password.pristine">Password with at least 6 characters is required.</span>
+    </div>
+    <button type="submit" class="btn btn-primary pull-right" [disabled]="!loginForm.valid">Log In</button>
+  </form>
 </cc-small-center-panel>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AngularFireAuth, FirebaseAuthState} from "angularfire2";
+import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'cc-nav-bar',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  auth: FirebaseAuthState;
+  authSubscription: Subscription;
+
+  constructor(private afAuth: AngularFireAuth) { }
 
   ngOnInit() {
+    this.authSubscription = this.afAuth.subscribe(auth => {
+      this.auth = auth;
+    });
+  }
+
+  onLogOut() {
+    this.afAuth.logout();
   }
 
 }

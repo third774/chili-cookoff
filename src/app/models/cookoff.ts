@@ -6,14 +6,14 @@ import {ScoreCard} from "./score-card";
  */
 
 export class CookOff {
-  teams: Team[];
-  judges: Judge[];
+  teams: Team[] = [];
+  judges: Judge[] = [];
   //scoreCards: ScoreCard[];
 
   generateScoreCards() {
     this.teams.forEach(team => {
       this.judges.forEach(judge => {
-        team.scoreCards.push(new ScoreCard(judge, team));
+        team.scoreCards.push(new ScoreCard(judge));
       })
     });
   }

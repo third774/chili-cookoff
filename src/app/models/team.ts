@@ -5,8 +5,10 @@ import {ScoreCard} from "./score-card";
 
 export class Team {
   members: string[];
-  name: string;
-  scoreCards: ScoreCard[];
+  scoreCards: ScoreCard[] = [];
+
+  constructor(public name: string = "") {
+  }
 
   average() {
 

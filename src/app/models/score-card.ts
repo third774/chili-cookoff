@@ -6,7 +6,7 @@ import {Criteria} from "./criteria";
  */
 
 export class ScoreCard {
-  constructor(private judge: Judge, private team: Team) {
+  constructor(private judge: Judge) {
 
   }
 

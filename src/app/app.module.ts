@@ -9,6 +9,11 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import {routes} from "./app.routes";
 import { SmallCenterPanelComponent } from './shared/small-panel/small-center-panel.component';
+import {AngularFireModule} from "angularfire2";
+import {FireBaseConfig} from "./fire-base-config";
+import {AuthService} from "./shared/auth.service";
+import { CookOffComponent } from './cook-off/cook-off.component';
+import {CookOffService} from "./services/cook-off.service";
 
 @NgModule({
   declarations: [
@@ -16,16 +21,18 @@ import { SmallCenterPanelComponent } from './shared/small-panel/small-center-pan
     LoginComponent,
     SignUpComponent,
     NavBarComponent,
-    SmallCenterPanelComponent
+    SmallCenterPanelComponent,
+    CookOffComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(FireBaseConfig),
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
     routes
   ],
-  providers: [],
+  providers: [AuthService, CookOffService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Judges</h2>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-primary pull-right" (click)="onAddJudge()">Add</button>
+      </div>
+    </div>
+    <div class="row" *ngFor="let judge of cookOff.judges; let i = index" [ngStyle]="{'padding-bottom': '10px'}">
+      <div class="col-md-12">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Judge Name" [(ngModel)]="judge.name">
+          <span class="input-group-btn">
+            <button class="btn btn-danger" type="button" (click)="onRemoveJudge(i)">x</button>
+          </span>
+        </div><!-- /input-group -->
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Teams</h2>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-primary pull-right" (click)="onAddTeam()">Add</button>
+      </div>
+    </div>
+    <div class="row" *ngFor="let team of cookOff.teams; let i = index" [ngStyle]="{'padding-bottom': '10px'}">
+      <div class="col-md-12">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Team Name" [(ngModel)]="team.name">
+          <span class="input-group-btn">
+            <button class="btn btn-danger" type="button" (click)="onRemoveTeam(i)">x</button>
+          </span>
+        </div><!-- /input-group -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <button class="btn btn-success pull-right" (click)="onBegin()" [disabled]="cookOff.judges.length < 1 || cookOff.teams.length < 2">Begin the Cook-Off!</button>
+  </div>
+</div>
