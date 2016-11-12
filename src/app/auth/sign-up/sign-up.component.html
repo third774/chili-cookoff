@@ -1,0 +1,30 @@
+<cc-small-center-panel>
+  <form [formGroup]="signupForm" (submit)="onSubmit(signupForm)">
+    <div class="form-group" [ngClass]="{'has-error': !signupForm.controls.email.valid && !signupForm.controls.email.pristine}">
+      <label for="email">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Email"
+        name="email"
+        formControlName="email"
+      >
+      <span *ngIf="!signupForm.controls.email.valid && !signupForm.controls.email.pristine">A valid email address is required.</span>
+
+    </div>
+    <div class="form-group" [ngClass]="{'has-error': !signupForm.controls.password.valid && !signupForm.controls.password.pristine}">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password"
+        name="password"
+        formControlName="password"
+      >
+      <span *ngIf="!signupForm.controls.password.valid && !signupForm.controls.password.pristine">Password with at least 6 characters is required.</span>
+    </div>
+    <button type="submit" class="btn btn-primary pull-right" [disabled]="!signupForm.valid">Sign Up!</button>
+  </form>
+</cc-small-center-panel>
