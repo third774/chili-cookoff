@@ -23,8 +23,9 @@ export class CookOff {
 
   public static fromModel(model: any): CookOff {
     let cookOff = new CookOff();
-    model.teams.forEach(team => cookOff.teams.push(team));
-    model.judges.forEach(judge => cookOff.judges.push(judge));
+    cookOff.teams = model.teams;
+    cookOff.judges = model.judges;
+    cookOff.criteria = model.criteria;
     return cookOff;
   }
 

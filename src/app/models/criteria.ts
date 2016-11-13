@@ -4,5 +4,5 @@
 
 export interface Criteria {
   name: string;
-  rating: number;
+  rating?: number;
 }
