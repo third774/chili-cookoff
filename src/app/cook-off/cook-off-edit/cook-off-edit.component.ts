@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {CookOff} from "../../models/cookoff";
 import {CookOffService} from "../../services/cook-off.service";
 import {SwalService} from "../../services/swal.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -13,7 +14,9 @@ export class CookOffEditComponent implements OnInit {
 
   cookOff: CookOff = new CookOff();
 
-  constructor(private cookOffService: CookOffService, private swal: SwalService) {
+  constructor(private cookOffService: CookOffService,
+              private swal: SwalService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -28,9 +31,11 @@ export class CookOffEditComponent implements OnInit {
     });
   }
 
-  onBegin() {
-    this.cookOff.generateScoreCards();
+  onSave() {
     this.cookOffService.saveCookOff(this.cookOff);
+    this.swal.success("Success!", "Your changes have been saved.").then(() => {
+      this.router.navigate(['/']);
+    });
   }
 
   onAddJudge() {

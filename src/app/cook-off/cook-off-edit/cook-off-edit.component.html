@@ -1,61 +1,64 @@
 <div class="row">
   <div class="col-md-6">
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Judges</h2>
-        <button class="btn btn-info pull-right" (click)="onAddJudge()">Add</button>
-      </div>
-    </div>
-    <div class="row" *ngFor="let judge of cookOff.judges; let i = index" [ngStyle]="{'padding-bottom': '10px'}">
-      <div class="col-md-12">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Judge Name" [(ngModel)]="judge.name">
-          <span class="input-group-btn">
+    <cc-panel>
+      <header>
+        <h3>Judges</h3>
+        <button class="btn btn-sm btn-info pull-right" (click)="onAddJudge()">Add</button>
+      </header>
+      <div class="row" *ngFor="let judge of cookOff.judges; let i = index" [ngStyle]="{'padding-bottom': '10px'}">
+        <div class="col-md-12">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Judge Name" [(ngModel)]="judge.name">
+            <span class="input-group-btn">
             <button class="btn btn-danger" type="button" (click)="onRemoveJudge(i)">x</button>
           </span>
-        </div><!-- /input-group -->
+          </div><!-- /input-group -->
+        </div>
       </div>
-    </div>
+    </cc-panel>
   </div>
   <div class="col-md-6">
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Teams</h2>
-        <button class="btn btn-info pull-right" (click)="onAddTeam()">Add</button>
-      </div>
-    </div>
-    <div class="row" *ngFor="let team of cookOff.teams; let i = index" [ngStyle]="{'padding-bottom': '10px'}">
-      <div class="col-md-12">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Team Name" [(ngModel)]="team.name">
-          <span class="input-group-btn">
+    <cc-panel>
+      <header>
+        <h3>Teams</h3>
+        <button class="btn btn-sm btn-info pull-right" (click)="onAddTeam()">Add</button>
+      </header>
+      <div class="row" *ngFor="let team of cookOff.teams; let i = index" [ngStyle]="{'padding-bottom': '10px'}">
+        <div class="col-md-12">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Team Name" [(ngModel)]="team.name">
+            <span class="input-group-btn">
             <button class="btn btn-danger" type="button" (click)="onRemoveTeam(i)">x</button>
           </span>
-        </div><!-- /input-group -->
+          </div><!-- /input-group -->
+        </div>
       </div>
-    </div>
+    </cc-panel>
   </div>
   <div class="col-md-6">
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Criteria</h2>
-        <button class="btn btn-info pull-right" (click)="onAddCriteria()">Add</button>
-      </div>
-    </div>
-    <div class="row" *ngFor="let criteria of cookOff.criteria; let i = index" [ngStyle]="{'padding-bottom': '10px'}">
-      <div class="col-md-12">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Criteria" [(ngModel)]="criteria.name">
-          <span class="input-group-btn">
+    <cc-panel>
+      <header>
+        <h3>Criteria</h3>
+        <button class="btn btn-sm btn-info pull-right" (click)="onAddCriteria()">Add</button>
+      </header>
+      <div class="row" *ngFor="let criteria of cookOff.criteria; let i = index"
+           [ngStyle]="{'padding-bottom': '10px'}">
+        <div class="col-md-12">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Criteria" [(ngModel)]="criteria.name">
+            <span class="input-group-btn">
             <button class="btn btn-danger" type="button" (click)="onRemoveCriteria(i)">x</button>
           </span>
-        </div><!-- /input-group -->
+          </div><!-- /input-group -->
+        </div>
       </div>
-    </div>
+    </cc-panel>
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
-    <button class="btn btn-success pull-right" (click)="onBegin()" [disabled]="cookOff.judges.length < 1 || cookOff.teams.length < 2">Begin the Cook-Off!</button>
+    <button class="btn btn-success pull-right" (click)="onSave()"
+            [disabled]="cookOff.judges.length < 1 || cookOff.teams.length < 2">Save
+    </button>
   </div>
 </div>

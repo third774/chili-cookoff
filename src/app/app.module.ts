@@ -15,6 +15,8 @@ import {CookOffEditComponent} from "./cook-off/cook-off-edit/cook-off-edit.compo
 import {CookOffService} from "./services/cook-off.service";
 import { CookOffComponent } from './cook-off/cook-off.component';
 import {SwalService} from "./services/swal.service";
+import { TeamScoreCardsComponent } from './team-score-cards/team-score-cards.component';
+import { PanelComponent } from './shared/panel/panel.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {SwalService} from "./services/swal.service";
     NavBarComponent,
     SmallCenterPanelComponent,
     CookOffEditComponent,
-    CookOffComponent
+    CookOffComponent,
+    TeamScoreCardsComponent,
+    PanelComponent
   ],
   imports: [
     AngularFireModule.initializeApp(FireBaseConfig),
