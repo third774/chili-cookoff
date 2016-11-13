@@ -14,6 +14,7 @@ import {AuthService} from "./shared/auth.service";
 import {CookOffEditComponent} from "./cook-off/cook-off-edit/cook-off-edit.component";
 import {CookOffService} from "./services/cook-off.service";
 import { CookOffComponent } from './cook-off/cook-off.component';
+import {SwalService} from "./services/swal.service";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { CookOffComponent } from './cook-off/cook-off.component';
     HttpModule,
     routes
   ],
-  providers: [AuthService, CookOffService],
+  providers: [AuthService, CookOffService, SwalService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

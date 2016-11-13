@@ -1,6 +1,8 @@
 import {Component, OnInit} from "@angular/core";
 import {CookOff} from "../../models/cookoff";
 import {CookOffService} from "../../services/cook-off.service";
+import {SwalService} from "../../services/swal.service";
+
 
 @Component({
   selector: 'cc-cook-off-edit',
@@ -11,7 +13,7 @@ export class CookOffEditComponent implements OnInit {
 
   cookOff: CookOff = new CookOff();
 
-  constructor(private cookOffService: CookOffService) {
+  constructor(private cookOffService: CookOffService, private swal: SwalService) {
   }
 
   ngOnInit() {
@@ -38,7 +40,8 @@ export class CookOffEditComponent implements OnInit {
   }
 
   onRemoveJudge(i: number) {
-    this.cookOff.judges.splice(i, 1);
+    this.swal.warn().then(() => this.cookOff.judges.splice(i, 1)).catch(() => {
+    });
   }
 
   onAddTeam() {
@@ -50,7 +53,8 @@ export class CookOffEditComponent implements OnInit {
   }
 
   onRemoveTeam(i: number) {
-    this.cookOff.teams.splice(i, 1);
+    this.swal.warn().then(() => this.cookOff.teams.splice(i, 1)).catch(() => {
+    });
   }
 
   onAddCriteria() {
@@ -60,7 +64,8 @@ export class CookOffEditComponent implements OnInit {
   }
 
   onRemoveCriteria(i: number) {
-    this.cookOff.criteria.splice(i, 1);
+    this.swal.warn().then(() => this.cookOff.criteria.splice(i, 1)).catch(() => {
+    });
   }
 
 }
