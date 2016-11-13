@@ -5,7 +5,7 @@
         <h2>Judges</h2>
       </div>
       <div class="col-md-6">
-        <button class="btn btn-primary pull-right" (click)="onAddJudge()">Add</button>
+        <button class="btn btn-info pull-right" (click)="onAddJudge()">Add</button>
       </div>
     </div>
     <div class="row" *ngFor="let judge of cookOff.judges; let i = index" [ngStyle]="{'padding-bottom': '10px'}">
@@ -25,7 +25,7 @@
         <h2>Teams</h2>
       </div>
       <div class="col-md-6">
-        <button class="btn btn-primary pull-right" (click)="onAddTeam()">Add</button>
+        <button class="btn btn-info pull-right" (click)="onAddTeam()">Add</button>
       </div>
     </div>
     <div class="row" *ngFor="let team of cookOff.teams; let i = index" [ngStyle]="{'padding-bottom': '10px'}">
