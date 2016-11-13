@@ -5,17 +5,7 @@ import {Criteria} from "./criteria";
  * Created by kkipp on 11/11/2016.
  */
 
-export class ScoreCard {
-  constructor(private judge: Judge) {
-
-  }
-
+export interface ScoreCard {
+  judge: Judge;
   criteria: Criteria[];
-
-  get average(): number {
-    let n = 0;
-    this.criteria.forEach(criteria => n += criteria.rating);
-    return n / this.criteria.length;
-  }
-
 }

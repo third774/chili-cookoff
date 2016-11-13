@@ -3,15 +3,8 @@ import {ScoreCard} from "./score-card";
  * Created by kkipp on 11/11/2016.
  */
 
-export class Team {
+export interface Team {
   members: string[];
-  scoreCards: ScoreCard[] = [];
-
-  constructor(public name: string = "") {
-  }
-
-  average() {
-
-  }
-
+  scoreCards: ScoreCard[];
+  name: string;
 }

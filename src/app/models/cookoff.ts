@@ -1,6 +1,6 @@
 import {Team} from "./team";
 import {Judge} from "./judge";
-import {ScoreCard} from "./score-card";
+import {Criteria} from "./criteria";
 /**
  * Created by kkipp on 11/12/2016.
  */
@@ -8,14 +8,24 @@ import {ScoreCard} from "./score-card";
 export class CookOff {
   teams: Team[] = [];
   judges: Judge[] = [];
-  //scoreCards: ScoreCard[];
+  criteria: Criteria[] = [];
 
   generateScoreCards() {
     this.teams.forEach(team => {
       this.judges.forEach(judge => {
-        team.scoreCards.push(new ScoreCard(judge));
-      })
+        team.scoreCards.push({
+          judge: judge,
+          criteria: this.criteria
+        });
+      });
     });
+  }
+
+  public static fromModel(model: any): CookOff {
+    let cookOff = new CookOff();
+    model.teams.forEach(team => cookOff.teams.push(team));
+    model.judges.forEach(judge => cookOff.judges.push(judge));
+    return cookOff;
   }
 
 }
