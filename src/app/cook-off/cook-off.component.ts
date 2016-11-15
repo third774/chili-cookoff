@@ -43,8 +43,21 @@ export class CookOffComponent implements OnInit, OnDestroy {
       "Begin the Cook-Off!")
       .then(() => {
         this.cookOffService.cookOff.generateScoreCards();
+        this.cookOff.inProgress = true;
         this.cookOffService.saveCookOff(this.cookOff);
         this.router.navigate(['/judging']);
+      }).catch(() => {
+    });
+  }
+
+  onReset() {
+    this.swal.warn(
+      "Are you sure?",
+      "Resetting the cookoff will erase all data!",
+      "Reset")
+      .then(() => {
+        this.cookOff = new CookOff();
+        this.cookOffService.saveCookOff(this.cookOff);
       }).catch(() => {
     });
   }

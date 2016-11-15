@@ -32,8 +32,11 @@
 </div>
 <div class="row" [ngStyle]="{'padding-bottom': '40px'}">
   <div class="col-md-12">
-    <a [routerLink]="['edit']" class="btn btn-primary pull-right">Edit</a>
-    <button (click)="onBegin()" class="btn btn-success">Begin Cook Off!</button>
+    <button *ngIf="!cookOff.complete && cookOff.inProgress" class="btn btn-primary" [routerLink]="['/judging']">Judge</button>
+    <button *ngIf="cookOff.complete" class="btn btn-primary">Results</button>
+    <button *ngIf="!cookOff.inProgress" (click)="onBegin()" class="btn btn-success" [disabled]="cookOff.judges.length < 1 || cookOff.teams.length < 2 || cookOff.criteria < 1">Begin</button>
+    <a *ngIf="!cookOff.inProgress" [routerLink]="['edit']" class="btn btn-primary">Edit</a>
+    <button (click)="onReset()" class="btn btn-danger pull-right">Reset</button>
   </div>
 </div>
 

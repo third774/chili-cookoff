@@ -19,7 +19,7 @@ export class CookOff {
       this.judges.forEach(judge => {
         team.scoreCards.push({
           judge: judge,
-          criteria: this.criteria,
+          criteria: JSON.parse(JSON.stringify(this.criteria)),
           complete: false
         });
       });
@@ -45,11 +45,11 @@ export class CookOff {
 
   public static fromModel(model: any): CookOff {
     let cookOff = new CookOff();
-    cookOff.teams = model.teams;
-    cookOff.judges = model.judges;
-    cookOff.criteria = model.criteria;
-    cookOff.inProgress = model.inProgress;
-    cookOff.complete = model.complete;
+    cookOff.teams = model.teams || [];
+    cookOff.judges = model.judges || [];
+    cookOff.criteria = model.criteria || [];
+    cookOff.inProgress = model.inProgress || false;
+    cookOff.complete = model.complete || false;
     return cookOff;
   }
 

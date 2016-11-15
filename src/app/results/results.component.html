@@ -1,10 +1,14 @@
 <div class="row" *ngFor="let team of cookOff.teams">
   <div class="col-md-12">
-    <h3>{{team.name}}: {{team.teamAverage}}</h3>
+    <h3>{{team.name}}: {{team.teamAverage.toFixed(2)}}</h3>
   </div>
   <div class="col-md-12">
     <div class="progress">
-      <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" [ngStyle]="{width: (team.teamAverage * 10).toString() + '%'}">
+      <div
+        class="progress-bar progress-bar-striped"
+        [ngClass]="{'progress-bar-success': (team === winningTeam), 'progress-bar-primary': (team !== winningTeam)}"
+        role="progressbar"
+        [ngStyle]="{width: (team.teamAverage * 10).toString() + '%'}">
         <span class="sr-only">60% Complete (warning)</span>
       </div>
     </div>
