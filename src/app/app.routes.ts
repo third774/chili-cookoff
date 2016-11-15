@@ -16,10 +16,10 @@ const APP_ROUTES: Route[] = [
     redirectTo: 'cookoff',
     pathMatch: 'full'
   },
-  {
-    path: 'signup',
-    component: SignUpComponent
-  },
+  // {
+  //   path: 'signup',
+  //   component: SignUpComponent
+  // },
   {
     path: 'login',
     component: LoginComponent

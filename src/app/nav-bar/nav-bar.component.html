@@ -57,7 +57,7 @@
       <!--</ul>-->
 
       <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="!auth" routerLinkActive="active"><a [routerLink]="['/signup']">Signup</a></li>
+        <!--<li *ngIf="!auth" routerLinkActive="active"><a [routerLink]="['/signup']">Signup</a></li>-->
         <li *ngIf="!auth" routerlinkactive="active"><a [routerLink]="['/login']">Log In</a></li>
         <li *ngIf="auth && !auth.anonymous"><a [ngStyle]="{cursor: 'pointer'}" (click)="onLogOut()">Log Out</a></li>
       </ul>
