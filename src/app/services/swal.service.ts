@@ -8,6 +8,7 @@ export class SwalService {
   private $danger = '#df382c';
   private $default = '#aea79f'
   private $success = '#2c8d3a';
+  private $primary = '#e95420';
 
   constructor() {
   }
@@ -32,6 +33,15 @@ export class SwalService {
       type: "success",
       text: text,
       confirmButtonColor: this.$success,
+    });
+  }
+
+  public error(title = "Whoops!", text = "Something went wrong! Please try again later.") {
+    return <Promise<any>>swal({
+      title: title,
+      type: "error",
+      text: text,
+      confirmButtonColor: this.$primary,
     });
   }
 
