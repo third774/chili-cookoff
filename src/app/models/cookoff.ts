@@ -36,10 +36,10 @@ export class CookOff {
     });
 
     this.teams.sort((a: Team, b: Team) => {
-      if (a.teamAverage < b.teamAverage) {
+      if (a.teamAverage > b.teamAverage) {
         return -1
       }
-      if (a.teamAverage > b.teamAverage) {
+      if (a.teamAverage < b.teamAverage) {
         return 1;
       }
       return 0;
