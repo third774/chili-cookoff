@@ -10,6 +10,7 @@ export class CookOff {
   judges: Judge[] = [];
   criteria: Criteria[] = [];
   inProgress = false;
+  complete = false;
 
   generateScoreCards() {
     this.shuffleTeams();
@@ -22,6 +23,16 @@ export class CookOff {
           complete: false
         });
       });
+    });
+  }
+
+  calculateResults() {
+    this.teams.forEach(team => {
+      team.scoreCards.forEach(scoreCard => {
+        scoreCard.judgesAverage =
+          scoreCard.criteria.reduce((sum, criteria) => {return sum += criteria.rating}, 0) / scoreCard.criteria.length;
+      });
+      team.teamAverage = team.scoreCards.reduce((sum, scoreCard) => {return sum += scoreCard.judgesAverage}, 0) / team.scoreCards.length;
     });
   }
 
@@ -38,6 +49,7 @@ export class CookOff {
     cookOff.judges = model.judges;
     cookOff.criteria = model.criteria;
     cookOff.inProgress = model.inProgress;
+    cookOff.complete = model.complete;
     return cookOff;
   }
 

@@ -17,7 +17,6 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit() {
     this.authSubscription = this.afAuth.subscribe(auth => {
-      console.log(auth);
       this.auth = auth;
     });
   }

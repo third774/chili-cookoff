@@ -1,11 +1,25 @@
 <div class="row">
   <div class="col-md-6"*ngFor="let team of cookOff.teams; let i = index">
     <cc-panel>
-      <header>{{team.name}}</header>
+      <header (click)="onClickName()">
+        <div *ngIf="showNames">
+          {{team.name}}
+        </div>
+        <div *ngIf="!showNames">
+          Team #{{i + 1}}
+        </div>
+      </header>
       <cc-team-score-cards
         [team]="team"
         [index]="i"
       ></cc-team-score-cards>
     </cc-panel>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <button (click)="onShowResults()" class="btn btn-primary pull-right" [disabled]="!allScoreCardsComplete">
+      Show Results
+    </button>
   </div>
 </div>

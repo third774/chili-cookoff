@@ -33,6 +33,7 @@ export class CookOffService {
   }
 
   saveCookOff(cookOff: CookOff) {
+    this._cookOff = cookOff;
     const model = JSON.parse(JSON.stringify(cookOff));
     console.log('saving: ', model);
     this.cookOffDb.set(model);

@@ -13,6 +13,8 @@ export class TeamScoreCardsComponent implements OnInit {
 
   @Output() scoreCardSaved = new EventEmitter<any>();
 
+
+
   constructor() { }
 
   ngOnInit() {

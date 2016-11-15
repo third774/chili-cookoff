@@ -6,5 +6,6 @@ import {ScoreCard} from "./score-card";
 export interface Team {
   members: string[];
   scoreCards: ScoreCard[];
+  teamAverage?: number;
   name: string;
 }

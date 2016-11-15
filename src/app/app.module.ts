@@ -20,6 +20,7 @@ import { PanelComponent } from './shared/panel/panel.component';
 import { JudgingComponent } from './judging/judging.component';
 import { JudgeScoreCardComponent } from './judge-score-card/judge-score-card.component';
 import {AuthGuard} from "./shared/auth-guard";
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {AuthGuard} from "./shared/auth-guard";
     TeamScoreCardsComponent,
     PanelComponent,
     JudgingComponent,
-    JudgeScoreCardComponent
+    JudgeScoreCardComponent,
+    ResultsComponent
   ],
   imports: [
     AngularFireModule.initializeApp(FireBaseConfig),
