@@ -36,8 +36,14 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-# Firebase Config
+# Firebase Stuff
 fire-base-config.ts
+.firebaserc
+database.rules.json
+firebase.json
+
+# Build Folder
+dist
 
 # Webstorm
 .idea
