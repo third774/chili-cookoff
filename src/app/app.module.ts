@@ -4,7 +4,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {AppComponent} from "./app.component";
 import {LoginComponent} from "./auth/login/login.component";
-import {SignUpComponent} from "./auth/sign-up/sign-up.component";
+// import {SignUpComponent} from "./auth/sign-up/sign-up.component";
 import {NavBarComponent} from "./nav-bar/nav-bar.component";
 import {routes} from "./app.routes";
 import {SmallCenterPanelComponent} from "./shared/small-panel/small-center-panel.component";
@@ -25,7 +25,7 @@ import {AuthGuard} from "./shared/auth-guard";
   declarations: [
     AppComponent,
     LoginComponent,
-    SignUpComponent,
+    // SignUpComponent,
     NavBarComponent,
     SmallCenterPanelComponent,
     CookOffEditComponent,
