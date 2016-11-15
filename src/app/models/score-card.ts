@@ -8,4 +8,5 @@ import {Criteria} from "./criteria";
 export interface ScoreCard {
   judge: Judge;
   criteria: Criteria[];
+  complete: boolean;
 }

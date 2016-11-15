@@ -1,0 +1,14 @@
+<div *ngIf="!scoreCard.complete">
+  <div class="row" *ngFor="let criteria of scoreCard.criteria">
+    <div class="col-md-12">
+      <div class="input-group">
+        <input [(ngModel)]="criteria.rating" type="number" class="form-control" placeholder="1-10 rating" aria-describedby="basic-addon2">
+        <span class="input-group-addon" id="basic-addon2">{{criteria.name}}</span>
+      </div>
+    </div>
+  </div>
+  <button (click)="onSubmit()" class="btn btn-primary pull-right" [disabled]="!allCriteriaHaveValues">Submit</button>
+</div>
+<div *ngIf="scoreCard.complete">
+  <p>Scores submitted</p>
+</div>

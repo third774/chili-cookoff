@@ -1,3 +1,40 @@
+<div class="row">
+  <div class="col-md-6">
+    <cc-panel>
+      <header>
+        Judges
+      </header>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let judge of cookOff.judges">{{judge.name}}</li>
+      </ul>
+    </cc-panel>
+  </div>
+  <div class="col-md-6">
+    <cc-panel>
+      <header>
+        Teams
+      </header>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let team of cookOff.teams">{{team.name}}</li>
+      </ul>
+    </cc-panel>
+  </div>
+  <div class="col-md-6">
+    <cc-panel>
+      <header>
+        Criteria
+      </header>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let criteria of cookOff.criteria">{{criteria.name}}</li>
+      </ul>
+    </cc-panel>
+  </div>
+</div>
+<div class="row" [ngStyle]="{'padding-bottom': '40px'}">
+  <div class="col-md-12">
+    <a [routerLink]="['edit']" class="btn btn-primary pull-right">Edit</a>
+    <button (click)="onBegin()" class="btn btn-success">Begin Cook Off!</button>
+  </div>
+</div>
 
 
-<a [routerLink]="['edit']" class="btn btn-primary">Edit</a>

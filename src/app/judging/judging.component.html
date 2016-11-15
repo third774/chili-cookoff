@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-6"*ngFor="let team of cookOff.teams; let i = index">
+    <cc-panel>
+      <header>{{team.name}}</header>
+      <cc-team-score-cards
+        [team]="team"
+        [index]="i"
+      ></cc-team-score-cards>
+    </cc-panel>
+  </div>
+</div>

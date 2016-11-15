@@ -1,3 +1,4 @@
-<p>
-  team-score-cards works!
-</p>
+<cc-panel *ngFor="let scoreCard of team.scoreCards">
+  <header>{{scoreCard.judge.name}}</header>
+  <cc-judge-score-card [scoreCard]="scoreCard"></cc-judge-score-card>
+</cc-panel>

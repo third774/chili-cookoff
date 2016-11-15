@@ -1,8 +1,9 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, OnDestroy} from "@angular/core";
 import {CookOff} from "../../models/cookoff";
 import {CookOffService} from "../../services/cook-off.service";
 import {SwalService} from "../../services/swal.service";
 import {Router} from "@angular/router";
+import {Subscription} from "rxjs";
 
 
 @Component({
@@ -10,9 +11,10 @@ import {Router} from "@angular/router";
   templateUrl: 'cook-off-edit.component.html',
   styleUrls: ['cook-off-edit.component.scss']
 })
-export class CookOffEditComponent implements OnInit {
+export class CookOffEditComponent implements OnInit, OnDestroy {
 
   cookOff: CookOff = new CookOff();
+  cookOffChangedSub: Subscription;
 
   constructor(private cookOffService: CookOffService,
               private swal: SwalService,
@@ -20,15 +22,14 @@ export class CookOffEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cookOffService.cookOffDb.subscribe(cookOff => {
-      if (cookOff.$value) {
-        this.cookOff = CookOff.fromModel(JSON.parse(<string>cookOff.$value));
-        this.cookOffService.cookOff = this.cookOff;
-      } else {
-        this.cookOff = new CookOff();
-        this.cookOffService.saveCookOff(this.cookOff);
-      }
+    this.cookOff = this.cookOffService.cookOff;
+    this.cookOffChangedSub = this.cookOffService.cookOff$.subscribe(() => {
+      this.cookOff = this.cookOffService.cookOff;
     });
+  }
+
+  ngOnDestroy() {
+    this.cookOffChangedSub.unsubscribe();
   }
 
   onSave() {

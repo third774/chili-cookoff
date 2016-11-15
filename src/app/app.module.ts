@@ -17,6 +17,9 @@ import { CookOffComponent } from './cook-off/cook-off.component';
 import {SwalService} from "./services/swal.service";
 import { TeamScoreCardsComponent } from './team-score-cards/team-score-cards.component';
 import { PanelComponent } from './shared/panel/panel.component';
+import { JudgingComponent } from './judging/judging.component';
+import { JudgeScoreCardComponent } from './judge-score-card/judge-score-card.component';
+import {AuthGuard} from "./shared/auth-guard";
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { PanelComponent } from './shared/panel/panel.component';
     CookOffEditComponent,
     CookOffComponent,
     TeamScoreCardsComponent,
-    PanelComponent
+    PanelComponent,
+    JudgingComponent,
+    JudgeScoreCardComponent
   ],
   imports: [
     AngularFireModule.initializeApp(FireBaseConfig),
@@ -38,7 +43,7 @@ import { PanelComponent } from './shared/panel/panel.component';
     HttpModule,
     routes
   ],
-  providers: [AuthService, CookOffService, SwalService],
+  providers: [AuthService, CookOffService, SwalService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

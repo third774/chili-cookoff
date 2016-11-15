@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+import {Team} from "../models/team";
 
 @Component({
   selector: 'cc-team-score-cards',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamScoreCardsComponent implements OnInit {
 
+  @Input() team: Team;
+  @Input() index: number;
+
+  @Output() scoreCardSaved = new EventEmitter<any>();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onCompleted() {
+    this.scoreCardSaved.emit();
   }
 
 }
