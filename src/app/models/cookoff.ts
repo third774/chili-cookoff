@@ -34,6 +34,16 @@ export class CookOff {
       });
       team.teamAverage = team.scoreCards.reduce((sum, scoreCard) => {return sum += scoreCard.judgesAverage}, 0) / team.scoreCards.length;
     });
+
+    this.teams.sort((a: Team, b: Team) => {
+      if (a.teamAverage < b.teamAverage) {
+        return -1
+      }
+      if (a.teamAverage > b.teamAverage) {
+        return 1;
+      }
+      return 0;
+    });
   }
 
   shuffleTeams() {
