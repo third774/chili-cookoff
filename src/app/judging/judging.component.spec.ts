@@ -5,7 +5,7 @@ import { JudgingComponent } from './judging.component';
 
 describe('Component: Judging', () => {
   it('should create an instance', () => {
-    let component = new JudgingComponent();
-    expect(component).toBeTruthy();
+    let fixture = TestBed.createComponent(JudgingComponent);
+    expect(fixture).toBeTruthy();
   });
 });
