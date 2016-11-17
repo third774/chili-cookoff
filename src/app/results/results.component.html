@@ -1,4 +1,4 @@
-<div class="row" *ngFor="let team of cookOff.teams; let i = index">
+<div class="row" *ngFor="let team of cookOff.teams; let i = index" [ngStyle]="{'padding-bottom': '40px'}">
   <div class="col-md-12">
     <h3>{{team.name}}: {{team.teamAverage.toFixed(2)}}</h3>
   </div>

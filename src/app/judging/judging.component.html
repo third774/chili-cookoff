@@ -16,7 +16,7 @@
     </cc-panel>
   </div>
 </div>
-<div class="row">
+<div class="row" [ngStyle]="{'padding-bottom': '40px'}">
   <div class="col-md-12">
     <button (click)="onShowResults()" class="btn btn-primary pull-right" [disabled]="!allScoreCardsComplete">
       Show Results
