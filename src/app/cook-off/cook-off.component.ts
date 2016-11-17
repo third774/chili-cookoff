@@ -40,7 +40,7 @@ export class CookOffComponent implements OnInit, OnDestroy {
     this.swal.warn(
       "Are you sure?",
       "Starting the Cook-Off will lock all judges, teams, and criteria into place, and scorecards will be generated.",
-      "Begin the Cook-Off!")
+      "Begin")
       .then(() => {
         this.cookOffService.cookOff.generateScoreCards();
         this.cookOff.inProgress = true;
