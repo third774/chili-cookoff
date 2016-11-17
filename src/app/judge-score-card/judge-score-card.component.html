@@ -1,14 +1,15 @@
-<div *ngIf="!scoreCard.complete">
+<form [formGroup]="scoreCardForm" *ngIf="!scoreCard.complete" (submit)="onSubmit()">
   <div class="row" *ngFor="let criteria of scoreCard.criteria">
     <div class="col-md-12">
-      <div class="input-group">
-        <input [(ngModel)]="criteria.rating" type="number" class="form-control" placeholder="1-10 rating" aria-describedby="basic-addon2">
+      <div class="input-group" [ngClass]="{'has-error': !scoreCardForm.controls[criteria.name].valid && scoreCardForm.controls[criteria.name].dirty}">
+        <input formControlName="{{criteria.name}}" type="number" class="form-control" placeholder="1-10 rating">
         <span class="input-group-addon" id="basic-addon2">{{criteria.name}}</span>
       </div>
+      <span *ngIf="!scoreCardForm.controls[criteria.name].valid && scoreCardForm.controls[criteria.name].dirty" [ngStyle]="{color: 'red'}">Number must be between 1-10</span>
     </div>
   </div>
-  <button (click)="onSubmit()" class="btn btn-primary pull-right" [disabled]="!allCriteriaHaveValues">Submit</button>
-</div>
+  <button type="submit" class="btn btn-primary pull-right" [disabled]="!scoreCardForm.valid">Submit</button>
+</form>
 <div *ngIf="scoreCard.complete">
   <p>Scores submitted</p>
 </div>
