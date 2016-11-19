@@ -4,4 +4,5 @@
 
 export interface Judge {
   name: string;
+  email: string;
 }

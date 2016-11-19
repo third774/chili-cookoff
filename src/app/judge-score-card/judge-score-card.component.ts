@@ -2,7 +2,7 @@ import {Component, OnInit, Input} from "@angular/core";
 import {ScoreCard} from "../models/score-card";
 import {CookOffService} from "../services/cook-off.service";
 import {FormGroup, FormControl, Validators} from "@angular/forms";
-import {MinNumber, MaxNumber} from "./custom-validators";
+import {MinNumber, MaxNumber} from "../shared/custom-validators";
 import {Criteria} from "../models/criteria";
 
 @Component({

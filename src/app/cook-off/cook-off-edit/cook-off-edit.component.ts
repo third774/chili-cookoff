@@ -41,7 +41,8 @@ export class CookOffEditComponent implements OnInit, OnDestroy {
 
   onAddJudge() {
     this.cookOff.judges.push({
-      name: ""
+      name: "",
+      email: ""
     });
   }
 

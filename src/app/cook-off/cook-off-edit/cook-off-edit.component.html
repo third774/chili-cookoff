@@ -7,12 +7,11 @@
       </header>
       <div class="row" *ngFor="let judge of cookOff.judges; let i = index" [ngStyle]="{'padding-bottom': '10px'}">
         <div class="col-md-12">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Judge Name" [(ngModel)]="judge.name">
-            <span class="input-group-btn">
-            <button class="btn btn-danger" type="button" (click)="onRemoveJudge(i)">x</button>
-          </span>
-          </div><!-- /input-group -->
+          <cc-judge-form
+            [judge]="judge"
+            [index]="i"
+            (judgeRemoved)="onRemoveJudge($event)"
+          ></cc-judge-form>
         </div>
       </div>
     </cc-panel>

@@ -21,6 +21,7 @@ import { JudgingComponent } from './judging/judging.component';
 import { JudgeScoreCardComponent } from './judge-score-card/judge-score-card.component';
 import {AuthGuard} from "./shared/auth-guard";
 import { ResultsComponent } from './results/results.component';
+import { JudgeFormComponent } from './cook-off/cook-off-edit/judge-form/judge-form.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ResultsComponent } from './results/results.component';
     PanelComponent,
     JudgingComponent,
     JudgeScoreCardComponent,
-    ResultsComponent
+    ResultsComponent,
+    JudgeFormComponent
   ],
   imports: [
     AngularFireModule.initializeApp(FireBaseConfig),
