@@ -19,7 +19,7 @@ export class CookOffService {
 
   constructor(private af: AngularFire) {
     this.cookOffSubject = new Subject();
-    this.cookOffDb = this.af.database.object('/cookoff');
+    this.cookOffDb = this.af.database.object('/cookoff2');
     this.cookOffDb.subscribe(cookOff => {
       if (cookOff.$exists()) {
         this._cookOff = CookOff.fromModel(cookOff);
