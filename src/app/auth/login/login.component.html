@@ -28,6 +28,7 @@
       >
       <span *ngIf="!loginForm.controls.password.valid && !loginForm.controls.password.pristine">Password with at least 6 characters is required.</span>
     </div>
+    <a [routerLink]="['/signup']">Click here to Sign Up</a>
     <button type="submit" class="btn btn-primary pull-right" [disabled]="!loginForm.valid">Log In</button>
   </form>
 </cc-small-center-panel>
