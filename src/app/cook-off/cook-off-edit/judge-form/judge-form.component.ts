@@ -51,6 +51,9 @@ export class JudgeFormComponent implements OnInit {
 
   onCancel() {
     this.judgeForm.reset();
+    for(let property in this.judge) {
+      this.judgeForm.controls[property].setValue(this.judge[property]);
+    }
     this.editing = false;
     this.disableControls();
   }

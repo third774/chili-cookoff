@@ -42,8 +42,13 @@
             Email is required
           </span>
         </div>
-        <button class="btn btn-default pull-right" type="button" *ngIf="editing" (click)="onCancel()">Cancel</button>
         <button class="btn btn-primary pull-right" type="submit" *ngIf="editing" [disabled]="!judgeForm.valid">Save</button>
+        <button
+          class="btn btn-default pull-right"
+          [ngStyle]="{'margin-right': '10px'}"
+          type="button"
+          *ngIf="editing"
+          (click)="onCancel()">Cancel</button>
         <button class="btn btn-primary pull-right" type="button" (click)="onEdit()" *ngIf="!editing">Edit</button>
       </form>
     </div>
