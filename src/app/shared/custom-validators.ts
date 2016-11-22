@@ -4,7 +4,7 @@ export function mailFormat(control: FormControl) {
 
   const emailRegex = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
-  if (control.value != "" && (control.value.length <= 5 || !emailRegex.test(control.value))) {
+  if (control.value != "" && ((control.value && control.value.length <= 5) || !emailRegex.test(control.value))) {
     return { "incorrectMailFormat": true };
   }
 
