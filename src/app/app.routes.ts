@@ -5,6 +5,7 @@ import {CookOffComponent} from "./cook-off/cook-off.component";
 import {JudgingComponent} from "./judging/judging.component";
 import {AuthGuard} from "./shared/auth-guard";
 import {ResultsComponent} from "./results/results.component";
+import {SignUpComponent} from "./auth/sign-up/sign-up.component";
 /**
  * Created by kkipp on 11/11/2016.
  */
@@ -15,10 +16,10 @@ const APP_ROUTES: Route[] = [
     redirectTo: 'cookoff',
     pathMatch: 'full'
   },
-  // {
-  //   path: 'signup',
-  //   component: SignUpComponent
-  // },
+  {
+    path: 'signup',
+    component: SignUpComponent
+  },
   {
     path: 'login',
     component: LoginComponent
